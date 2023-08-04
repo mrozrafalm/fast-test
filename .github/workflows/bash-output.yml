@@ -34,9 +34,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment: Staging
+    env:
+      ENVIRO1: ${{ vars.ENV_VAR }}
     
     steps:
       - name: Use variables
         run: |
-          echo ${{ vars.ENV_VAR }} > somefile.txt
+          echo $ENVIRO1 > somefile.txt
           cat somefile.txt
