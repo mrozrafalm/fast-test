@@ -1,0 +1,29 @@
+name: bash-get-curl
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: BashOneLiner
+        run: echo Hello, world!
+
+      - name: Bash multi line
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+
+      - name: get something
+        run: |
+          echo Get me this runner IP 
+          curl -s https://ifconfig.me/
