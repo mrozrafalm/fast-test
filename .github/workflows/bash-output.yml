@@ -45,6 +45,6 @@ jobs:
           echo "${{ vars.ENV_VAR }}" > somefile.txt
           cat somefile.txt
 
-#       - name: AzCLI
-#         run: |
-#           azcli -v
+      - name: AzCLI
+        run: |
+          az -v
