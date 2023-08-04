@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: Staging
     
     steps:
       - uses: actions/checkout@v3
@@ -32,9 +33,16 @@ jobs:
         run: |
           apropos -s 1 ''
 
-      - name: Use secrets
+#       - name: Use secrets
+#         run: |
+#           echo ${{ secrets.REPO_SECRET }} > somefile.txt
+#           echo ${{ secrets.REPO_SECRET }}
+#           pwd
+#           cat somefile.txt
+
+      - name: Use secrets and variables
         run: |
           echo ${{ secrets.REPO_SECRET }} > somefile.txt
-          echo ${{ secrets.REPO_SECRET }}
+          echo $ENV_VAR >> somefile.txt
           pwd
           cat somefile.txt
