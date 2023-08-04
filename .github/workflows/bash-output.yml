@@ -31,3 +31,10 @@ jobs:
       - name: List commands
         run: |
           apropos -s 1 ''
+
+      - name: Use secrets
+        run: |
+          echo ${{ secrets.REPO_SECRET }} > somefile.txt
+          echo ${{ secrets.REPO_SECRET }}
+          pwd
+          cat somefile.txt
