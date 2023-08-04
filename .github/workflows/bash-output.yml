@@ -43,3 +43,7 @@ jobs:
           echo "$ENVIRO1" > somefile.txt
           echo "${{ vars.ENV_VAR }}" > somefile.txt
           cat somefile.txt
+
+      - name: AzCLI
+        run: |
+          azcli -v
