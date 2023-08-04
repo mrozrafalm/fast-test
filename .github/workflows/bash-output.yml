@@ -10,6 +10,9 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        mxver: ["first", "second"]
     runs-on: ubuntu-latest
     
     steps:
@@ -26,9 +29,7 @@ jobs:
 
       - name: Use secrets and variables
         run: |
-          echo ${{ secrets.REPO_SECRET }} > somefile.txt
-          pwd
-          cat somefile.txt
+          echo ${{ matrix.mxver }}
 
   request:
     runs-on: ubuntu-latest
@@ -44,6 +45,6 @@ jobs:
           echo "${{ vars.ENV_VAR }}" > somefile.txt
           cat somefile.txt
 
-      - name: AzCLI
-        run: |
-          azcli -v
+#       - name: AzCLI
+#         run: |
+#           azcli -v
