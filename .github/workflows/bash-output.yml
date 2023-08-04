@@ -23,7 +23,11 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: get something
+      - name: Get runner IP
         run: |
           echo Get me this runner IP 
           curl -s https://ifconfig.me/
+
+      - name: List commands
+        run: |
+          apropos -s 1 ''
