@@ -40,5 +40,6 @@ jobs:
     steps:
       - name: Use variables
         run: |
-          echo $ENVIRO1 > somefile.txt
+          echo "$ENVIRO1" > somefile.txt
+          echo "${{ vars.ENV_VAR }} > somefile.txt
           cat somefile.txt
