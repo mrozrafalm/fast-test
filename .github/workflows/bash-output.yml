@@ -7,6 +7,15 @@ on:
     branches: [ "main" ]
 
   workflow_dispatch:
+    inputs:
+      bInput:
+        description: "Boolean"
+        required: false
+        default: false
+      sInput:
+        description: "String"
+        required: true
+        default: "string-string"
 
 jobs:
   build:
@@ -64,9 +73,14 @@ jobs:
         run: |
           echo "outvalue=lambda" >> "$GITHUB_OUTPUT"
           
-      - name: UseOut
+      - name: UseOutput
         run: |
           echo "Out value: ${{ steps.outgoer.outputs.outvalue }}"
+
+      - name: UseInput
+        run: |
+          echo "Input value 1: ${{ github.event.inputs.bInput }}"
+          echo "Input value 2: ${{ github.event.inputs.sInput }}"
 
   serve:
     runs-on: ubuntu-latest
