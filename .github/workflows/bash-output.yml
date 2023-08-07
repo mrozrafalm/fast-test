@@ -13,6 +13,10 @@ jobs:
     strategy:
       matrix:
         mxver: ["first", "second"]
+        include:
+          - mxver: "first"
+            npm: "yes"
+
     runs-on: ubuntu-latest
     
     steps:
@@ -30,6 +34,11 @@ jobs:
       - name: Use secrets and variables
         run: |
           echo ${{ matrix.mxver }}
+
+      - name: Only if first matrix run
+        if: ${{ matrix.npm }}
+        run: |
+          echo NPM is ${{ matrix.npm }}
 
   request:
     runs-on: ubuntu-latest
