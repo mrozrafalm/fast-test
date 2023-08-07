@@ -16,6 +16,7 @@ jobs:
         include:
           - mxver: "first"
             npm: "yes"
+          - mxver: "third"
 
     runs-on: ubuntu-latest
     
