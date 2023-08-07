@@ -60,8 +60,13 @@ jobs:
           az -v
           
       - name: OutItGoes
+        id: outgoer
         run: |
           echo "outvalue=lambda" >> "$GITHUB_OUTPUT"
+          
+      - name: UseOut
+        run: |
+          echo "Out value: ${{ steps.outgoer.outputs.outvalue }}"
 
   serve:
     runs-on: ubuntu-latest
