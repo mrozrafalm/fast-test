@@ -58,3 +58,16 @@ jobs:
       - name: AzCLI
         run: |
           az -v
+          
+      - name: OutItGoes
+        run: |
+          echo "outvalue=lambda" >> "$GITHUB_OUTPUT"
+
+  serve:
+    runs-on: ubuntu-latest
+    needs: request
+    
+    steps:
+      - name: Use output
+        run: |
+          echo ${{ needs.request.outputs.outvalue }}
