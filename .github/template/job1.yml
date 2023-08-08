@@ -1,0 +1,19 @@
+name: template-job
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  template-job:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get runner IP
+        run: |
+          echo This is a template job
