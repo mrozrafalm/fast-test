@@ -90,3 +90,6 @@ jobs:
       - name: Use output
         run: |
           echo ${{ needs.request.outputs.outvalue }}
+
+extends:
+  - .github/template/job1.yml
